@@ -1,41 +1,54 @@
-Image Steganography in Python
+# 🔐 Secure Image Steganography (Cryptographic LSB)
 
-Overview This project demonstrates an Image Steganography tool implemented in Python, allowing users to embed secret messages within images for secure communication. The application features a Graphical User Interface (GUI) that enables users to easily encrypt and decrypt hidden messages within image files using a passcode for added security. This project is an excellent example of how Python can be used for image manipulation and data security.
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green.svg)
+![Cryptography](https://img.shields.io/badge/Cryptography-Fernet-red.svg)
 
-Features Encrypt and Decrypt Messages: Hide and retrieve secret messages inside images. GUI Interface: Simple and user-friendly interface built with Tkinter. Passcode Protection: Secure encryption and decryption using a passcode. Cross-Platform Support: Runs on Windows, macOS, and Linux. Image File Support: Works with standard image formats like PNG and JPG. Real-Time Status Updates: Displays status messages during the encryption and decryption process. Technology Used Programming Language: Python
+A robust Python-based steganography tool that securely hides encrypted payloads within the **Least Significant Bits (LSB)** of an image.
 
-Libraries/Frameworks:
+Unlike traditional steganography systems that store plain text, this project implements a **two-layer security mechanism**:
+- Encrypt the message using **Fernet (AES-128 in CBC mode)**
+- Embed the encrypted payload into image pixel data using LSB encoding
 
-Tkinter (for GUI) Pillow (PIL) (for image processing) NumPy (for advanced image manipulation) Cryptography (for additional security, if implemented) OS and File Handling (for file operations) Platform Compatibility: Windows, macOS, Linux Opencv
+---
 
-Development Environment: VS Code, PyCharm, Jupyter Notebook Usage
+## 🚀 Features
 
-Encrypt a Message: Select an image using the Select Image button.
+- 🔐 **Two-Layer Security**
+  - Encryption + Steganography
+  - Payload remains unreadable without the cryptographic key
 
-Enter your secret message and passcode.
+- 🖼️ **Lossless Data Embedding**
+  - LSB manipulation ensures minimal visual distortion
+  - Maintains image quality and integrity
 
-Click Encrypt to hide the message inside the image.
+- 💻 **Dual Interface Support**
+  - **CLI Tools** for automation (`encrypt_hide.py`, `extract_decrypt.py`)
+  - **GUI Application** using Tkinter (`stegano_gui.py`)
 
-Decrypt a Message: Select the encrypted image.
+- ⚙️ **Efficient Processing**
+  - Uses NumPy-based vectorized operations for faster pixel manipulation
 
-Enter the passcode used during encryption.
+- 🛡️ **Robust Error Handling**
+  - Detects insufficient image capacity
+  - Handles missing/corrupt key files
+  - Prevents invalid file formats
 
-Click Decrypt to retrieve the hidden message.
+---
 
-Screenshots
+## 🛠️ Tech Stack
 
-Contributing
+- Python
+- OpenCV
+- NumPy
+- Cryptography (Fernet)
+- Tkinter (GUI)
 
-If you want to contribute to this project, feel free to fork it and submit a pull request. Make sure to follow best practices and ensure your code is well-documented.
+---
 
-License
+## 📦 Installation
 
-This project is open-source and available under the MIT License. Contact
+Make sure Python 3.8+ is installed.
 
-Name: YUVA VARSHITH VANAMA
-
-College: IIIT NAGPUR
-
-GitHub Profile: YuvaVarshith4
-
-Email: yuvavarshith4926@gmail.com
+```bash
+pip install opencv-python numpy cryptography
